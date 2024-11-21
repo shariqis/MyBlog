@@ -1,0 +1,185 @@
+ <!-- <mat-toolbar>
+  <span>Registration</span>
+</mat-toolbar>
+<mat-card class="my-card">
+
+
+
+   <hr>
+
+
+   <mat-card-content>
+    <form class="my-form">
+       <mat-form-field class="full-width">
+              <mat-label>First Name</mat-label>
+              <input  matInput  placeholder="First name"  name="fname"  required>
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Last Name</mat-label>
+              <input  matInput  placeholder="Last Name" name="lname"  required>
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Address</mat-label>
+              <input  matInput  placeholder="Address" name="address"  required>
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Email</mat-label>
+              <input  matInput  placeholder="Email" name="email">
+           </mat-form-field>
+           <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input  matInput  placeholder="Password"  name="password">
+           </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <h1>BLOG</h1> </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <!-- *ngIf="!authService.isLoggedIn()" -->
+          <a class="nav-link"  routerLink="">REGISTER</a>
+        </li>
+        <li class="nav-item">
+          <!-- *ngIf="!authService.isLoggedIn()" -->
+          <a class="nav-link"  routerLink="/log">LOGIN</a>
+        </li>
+  
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+                
+              <h1 >Registration Form</h1>
+
+              <hr>
+              <form #form1="ngForm" class="container" (ngSubmit)="register(form1.value)">
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="firstName">First Name</label>
+
+                      <input ngModel required #fname="ngModel" name="first_name" autocomplete="off"  type="text" id="firstName" class="form-control form-control-lg" />
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="lastName">Last Name</label>
+
+                      <input ngModel required #lname="ngModel" name="last_name"  autocomplete="off" type="text" id="lastName" class="form-control form-control-lg" />
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+            
+                  <div class="col-md-6 mb-4">
+  
+                    <div data-mdb-input-init class="form-outline">
+                    <label for="Gender" class="form-label">Gender:</label>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" ngModel required #gen="ngModel"  name="gender" id="femaleGender"
+                        value="Female" checked />
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" ngModel required #gen="ngModel"  name="gender" id="maleGender"
+                        value="Male" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label" for="otherGender">Other</label>
+
+                      <input class="form-check-input" type="radio" ngModel required #gen="ngModel"   name="gender" id="otherGender"
+                        value="Other" />
+                    </div>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="emailAddress">Email</label>
+
+                      <input ngModel required #email="ngModel" name="email" autocomplete="off" type="email" id="emailAddress" class="form-control form-control-lg" />
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+  
+                    <div data-mdb-input-init class="form-outline">
+                      <label class="form-label" for="phoneNumber">Phone Number</label>
+
+                      <input ngModel required #phone="ngModel" name="phone" autocomplete="off"  type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                    </div>
+  
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="Username">Username</label>
+  
+                        <input ngModel required #uname="ngModel" name="username" autocomplete="off" type="text" id="Username" class="form-control form-control-lg" />
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+    
+                      <div data-mdb-input-init class="form-outline">
+                        <label class="form-label" for="Password">Password</label>
+  
+                        <input ngModel required #password="ngModel" name="password"  autocomplete="off" type="password" id="Password" class="form-control form-control-lg" />
+                      </div>
+    
+                    </div>
+                  </div>
+    
+  
+        
+  
+                <div class="mt-4 pt-2">
+                  <input  class="btn btn-primary btn-lg" type="submit" value="SIGNUP" [disabled]="form1.invalid" />
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+

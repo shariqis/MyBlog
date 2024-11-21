@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <h1>BLOG</h1>
+    </a>
+    <span *ngIf="authService.isLoggedIn()" class="spacer" style="    margin-left: 289px;
+"> <b> Welcome : {{userName}} </b> </span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="">REGISTER</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="/log">LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/welcome">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/add_post">ADD POST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/view_post">VIEW POST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" (click)="authService.logout()"
+            routerLink="/log">LOGOUT</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+
+
+
+  <div class="post-grid">
+    <h2> Posts</h2>
+    <div class="grid-container">
+      <div *ngFor="let post of posts" class="grid-item">
+        <h3> <b>{{ post.title }}</b> <b style="float: right;">By : {{ post.created_by }}</b></h3>
+        <p>{{ post.content }}</p>
+        <!-- <small>Posted on: {{ post.created_at | date }}</small> -->
+
+        <div class="action-buttons">
+          <!-- <button class="btn btn-warning" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#commentModal' + post.id">Comment</button> -->
+
+          <button class="btn btn-warning" (click)="commentPost(post)">Comment</button>
+
+        </div>
+
+        <!--  -->
+
+    
+
+        <!-- The Modal  id="myModal" -->
+        <!-- <div [id]="'commentModal' + post.id" class="modal fade" tabindex="-1" aria-labelledby="commentModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+             
+              <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+
+            
+              <div class="modal-body">
+                Modal body..
+              </div>
+
+           
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+</div>

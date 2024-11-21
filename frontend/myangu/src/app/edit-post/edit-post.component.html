@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <h1>BLOG</h1> </a>
+    <span *ngIf="authService.isLoggedIn()" class="spacer" style="    margin-left: 289px;
+"> <b> Welcome : {{userName}}  </b> </span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="">REGISTER</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!authService.isLoggedIn()" routerLink="/log">LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  *ngIf="authService.isLoggedIn()" routerLink="/welcome">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/add_post">ADD POST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" routerLink="/view_post">VIEW POST</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="authService.isLoggedIn()" (click)="authService.logout()" routerLink="/log">LOGOUT</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+
+                        <h1>{{'EDIT POST'|translate}}</h1>
+
+                        <hr>
+
+
+
+
+                        <form action="" #form1="ngForm" (ngSubmit)="update_content(form1.value)">
+
+                            <div class="mb-3">
+                                <label> {{'Title' | translate}}</label>
+                                <input type="text" class="form-control " [(ngModel)]="postData.title"
+                                    placeholder="{{'Content'| translate}}" name="title" ngModel required>
+                            </div>
+                                <div class="mb-3">
+                               
+                                <input style="display: none;" type="text" class="form-control " [(ngModel)]="postData.id"
+                                    placeholder="{{'Content'| translate}}" name="id" ngModel required>
+                            </div>
+                            <div class="mb-3">
+                                <label for=""> {{'Content'| translate}}</label>
+                                <textarea class="form-control" ngModel [(ngModel)]="postData.content"
+                                    placeholder="{{'Content'| translate}}" name="content"
+                                    id="exampleFormControlTextarea1" rows="5"></textarea>
+                            </div>
+
+                            <input class="btn btn-success" type="submit" value="UPADTE POST" [disabled]="form1.invalid">
+
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>

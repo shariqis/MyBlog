@@ -1,0 +1,29 @@
+.post-grid {
+    margin: 20px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust for responsiveness */
+    gap: 20px; /* Space between grid items */
+  }
+  
+  .grid-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+  }
+  
+  .grid-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item on hover */
+  }
+  
+  h3 {
+    margin: 0;
+  }
+
+
+
+
